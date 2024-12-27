@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family) !important;
+    background-color: rgb(16, 22, 53) !important;
+    backdrop-filter: blur(175px);
+    background-image: url(../../assets/svg/Animated\ BG.svg);
+    color: var(--text-white);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../imgs/sectionlanding.png) center / cover no-repeat;
+    filter: grayscale(50%) brightness(60%);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.privacy-section {
+    height: auto !important;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.content h5 {
+    text-align: start;
+}
+
+@media (max-width: 767px) {
+    .content h5 {
+        font-size: 1.1rem;
+    }
+}
+
+.content li {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: var(--text-white);
+    text-align: start;
+}
+
+@media (max-width: 767px) {
+    .content li {
+        font-size: 14px;
+    }
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: var(--text-white);
+    text-align: start;
+}
+
+p.text-white {
+    margin-bottom: 0;
+}

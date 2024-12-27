@@ -1,0 +1,569 @@
+
+.containerofbusiness-planer #business-plan-form {
+    background-color: var(--backColor-Base-sidebar-base);;
+    border-radius: 10px;
+    padding: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: flex;
+    justify-content:space-between;
+}
+
+.containerofbusiness-planer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 0;
+    border-radius: 8px;
+}
+
+:root {
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*--primary: hsl(270, 100%, 50%);*/
+    /*--primary: #6a5aff;*/
+    --primary: #5f55ad;
+    --white: #fff;
+    --black: #000;
+    --darker: #000;
+    --lighter: #fff;
+}
+
+:is(*, *::before, *::after) {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.steps-wrapper {
+    width: 30%;
+    display:flex;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.steps {
+    width:100%;
+    display: flex;
+    flex-direction: column; /* Stack steps vertically */
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+.step-wrapper {
+
+    width:100%;
+    display: flex;
+    flex-direction: row; /* Align step and title horizontally */
+    align-items: center; /* Vertically center step and title */
+    position: relative;
+    z-index: 2;
+}
+
+.step {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgb(222, 222, 222);
+    border-radius: 50%;
+    color: rgb(135, 135, 135);
+    background: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 500;
+    transition: 200ms ease;
+    transition-delay: 0ms;
+    z-index: 3;
+}
+.dark .step{
+    background: #2a2d3f;
+}
+.step.active {
+    color: var(--white);
+    background: var(--primary);
+    border-color: var(--primary);
+    transition-delay: 100ms;
+}
+
+.step-title {
+    margin-left: 10px; /* Space between the step and the title */
+    font-size: 12px;
+    /*color: rgb(135, 135, 135);*/
+    color: var(--Color-Text-sideBar-text-color);
+    font-weight: 400;
+    text-align: left; /* Align title text to the left */
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 8%;
+    width: 4px;
+    height: 100%;
+    background: rgb(222, 222, 222);
+    z-index: 1;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 991px){
+    .steps{
+        min-height:418px;
+    }
+}
+@media (min-width: 767px) {
+    .progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 0;
+        background: var(--primary);
+        transition: height 300ms ease;
+        z-index: 1;
+    }
+}
+@media (min-width: 991px) and (max-width: 1300px) {
+    .progress-bar {
+        left:11%
+    }
+}
+@media (min-width: 767px) and (max-width: 991px) {
+    .progress-bar {
+        left:11%
+    }
+}
+
+.buttons {
+    /*margin-block-start: 20px;*/
+    margin-block-start: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    width:30%;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    background: var(--primary);
+    color: var(--white);
+    cursor: pointer;
+    transition: 200ms linear;
+}
+
+.btn:active {
+    scale: 0.9;
+}
+
+.btn:hover:not(:disabled) {
+    color:#fff;
+    background: #514a8c;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    color:#fff;
+    background: #9e94fa;
+    pointer-events: none;
+}
+
+.containerofbusiness-planer #business-plan-form h3 {
+    text-align: left;
+    font-size: 18px;
+    color: var(--Color-Text-sideBar-text-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+#form-content{
+    width:70%;
+
+}
+#business-plan-form #form-content .form-group {
+    width: 100%;
+    margin: auto;
+}
+
+#business-plan-form #form-content .form-group .input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    /*background-color: #ffffff;*/
+    margin-top: 8px;
+}
+
+#business-plan-form #form-content .form-group h4 {
+    font-size: 18px !important;
+}
+
+#business-plan-form #form-content .form-group label {
+    display: block;
+    font-weight: 400;
+    color: var(--Color-Text-sideBar-text-color);
+    font-size: 12px;
+
+}
+
+#business-plan-form #form-content .form-group input {
+    padding: 6px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    outline: none !important;
+    font-size: 15px !important;
+    color: var(--Color-Text-sideBar-text-color);
+    font-weight: 400 !important;
+}
+
+#business-plan-form #form-content .form-group select {
+    padding: 6px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    outline: none !important;
+    font-size: 15px !important;
+    color: var(--Color-Text-sideBar-text-color);
+    font-weight: 400 !important;
+}
+
+#business-plan-form #form-content .form-group textarea {
+    border-radius: 8px !important;
+    padding: 10px !important;
+    border: 1px solid #ccc !important;
+    outline: none !important;
+    font-size: 15px !important;
+    color: var(--Color-Text-sideBar-text-color);
+    font-weight: 400 !important;
+    /*resize:none;*/
+}
+
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#business-plan-form #form-content .button {
+    width: 30%;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+}
+
+#business-plan-form #form-content .button:hover {
+    background-color:  #514a8c;
+}
+
+@media (max-width: 767px) {
+
+    #business-plan-form{
+        flex-direction:column;
+    }
+    .steps-wrapper {
+        width: 100%;
+    }
+    #form-content{
+        width:100%;
+    }
+    .steps-wrapper {
+        width: 100%;
+        flex-direction: column;
+
+        position: relative; /* Relative positioning for the entire wrapper */
+    }
+
+    .steps {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative; /* Maintain relative positioning for the steps */
+    }
+
+    .step-wrapper {
+        width:10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center step and title vertically */
+        justify-content:center;
+        position: relative; /* Keep title aligned with step */
+        z-index: 2; /* Ensures step-wrapper stays above progress-bar */
+    }
+
+    .step-wrapper:first-child{
+        align-items: flex-start;
+    }
+    .step-wrapper:last-child{
+        align-items: flex-end;
+    }
+    .step {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /*border: 3px solid rgb(222, 222, 222);*/
+        border: 3px solid var(--backColor-Base-sidebar-base);;
+        border-radius: 50%;
+        color: rgb(135, 135, 135);
+        /*background: rgb(255, 255, 255);*/
+        background: var(--backColor-Base-sidebar-base);;
+        font-size: 18px;
+        font-weight: 500;
+        transition: 200ms ease;
+        transition-delay: 0ms;
+        z-index: 3;
+    }
+
+    .step.active {
+        color: var(--white);
+        background: var(--primary);
+        border-color: var(--primary);
+        transition-delay: 100ms;
+    }
+
+    .step-title {
+        margin-top: 8px; /* Space between the step and the title */
+
+        color: rgb(135, 135, 135);
+        text-align: center;
+        font-weight: 400;
+        white-space: nowrap; /* Prevent text from wrapping */
+        overflow: hidden; /* Hide overflowing text */
+        text-overflow: ellipsis; /* Show '...' for trimmed text */
+        max-width: 50px; /* Set a maximum width for the title */
+        font-size: 10px; /* Optionally reduce font size for better fit */
+    }
+
+    .progress-bar {
+        position: absolute;
+        top: 35%; /* Aligns progress bar vertically with the steps */
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: rgb(222, 222, 222);
+        z-index: 1; /* Ensures the progress bar is beneath steps */
+        transform: translateY(-50%); /* Centers it perfectly */
+    }
+
+    .progress {
+        position: absolute;
+        height:100% !important;
+        width:0;
+        background: var(--primary);
+        transition: 300ms ease;
+        z-index: 1; /* Keeps progress beneath steps */
+    }
+
+
+    #business-plan-form #form-content .form-group h4 {
+        font-size: 14px !important;
+    }
+
+    #business-plan-form #form-content .form-group label {
+        font-size: 15px;
+    }
+
+    #business-plan-form #form-content .form-group input,
+    textarea,
+    select {
+        padding: 5px !important;
+        font-size: 14px !important;
+    }
+
+    #business-plan-form #form-content .form-group label {
+        font-size: 14px !important;
+    }
+
+    .containerofbusiness-planer {
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 8px;
+    }
+
+    #business-plan-form #form-content .form-group {
+        width: 100%;
+    }
+
+    .containerofbusiness-planer #business-plan-form h3 {
+        text-align: left;
+        font-size: 19px;
+        color: var(--Color-Text-sideBar-text-color);
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+}
+
+.containerofbusiness-planer #business-plan-form #form-content .section {
+    display: none;
+}
+
+.containerofbusiness-planer #business-plan-form #form-content .section.active {
+    display: block; /* عرض القسم النشط فقط */
+}
+
+@media (max-width: 480px) {
+    #business-plan-form #form-content .form-group {
+        width: 100%;
+    }
+}
+
+.Genration-content {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    height: 100vh;
+}
+
+.Genration-content .sm-slidebar h3 {
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--Color-Text-sideBar-text-color);
+}
+
+.Genration-content .sm-slidebar {
+    border-radius: 30px;
+    display: flex;
+    height: 600px;
+    background-color: var(--backColor-Base-sidebar-base);
+    flex-direction: column;
+    min-width: 280px;
+    gap: 5px;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.Genration-content .section-list {
+    list-style-type: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+.Genration-content .section-list li {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: var(--Color-Text-sideBar-text-color);
+    font-family: "DM Sans", serif;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Genration-content .section-list li:hover {
+    border-radius: 8px;
+    background: rgba(174, 132, 248, 0.40);
+}
+
+.Genration-content .btn-Presentation {
+    border-radius: 12px;
+    background: #8646F4;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+}
+
+.Genration-content li.active {
+    background: rgba(174, 132, 248, 0.40);
+    border-radius: 8px;
+    width: 100%;
+}
+
+.Genration-content .section-content {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: 100%;
+}
+
+.Genration-content .section-content h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--Color-Text-sideBar-text-color);
+}
+
+.Genration-content .section-content .section-content-in {
+    list-style: none;
+    padding-left: 0;
+}
+
+textarea, input, select{
+    background: none;
+}
+.form-control{
+    background: none !important;
+}
+
+option {
+    background-color: #2a2d3f !important; /* Change the background color of options */
+    color: var(--Color-Text-sideBar-text-color)  !important; /* Change the text color */
+}
+.error-message {
+    font-size: 14px;
+    color: rgb(197, 52, 52);
+}
+
+input[type="radio"] {
+    appearance: none; /* لإزالة الشكل الافتراضي */
+    -webkit-appearance: none; /* دعم المتصفحات القديمة */
+    width: 14px;
+    height: 12px;
+    border: 2px solid #999; /* لون الحدود الافتراضي */
+    border-radius: 50%; /* جعلها دائرية */
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+/* تغيير الحدود عند التحديد */
+input[type="radio"]:checked {
+    border-color: #5f55ad; /* اللون البنفسجي */
+}
+/* إضافة دائرة داخلية عند التحديد */
+input[type="radio"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #5f55ad; /* لون البنفسجي الداخلي */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+#business-plan-form #form-content .form-group label span {
+    color: rgb(215, 48, 48);
+}

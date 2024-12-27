@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    direction: ltr;
+    text-align: left;
+}
+
+body.rtl {
+    direction: rtl;
+    text-align: right;
+}
+/* 
+body.rtl nav ul {
+    flex-direction: row-reverse; 
+}
+
+body.rtl nav ul li {
+    margin-left: 20px;
+    margin-right: 0;
+} */
+
+@font-face {
+    font-family: 'Yaro';
+    src: url('/assets/Font/yaro-font-family/YaroOp.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-white: #FAFAFA;
+    --text-landing-subtitle-color: #B5B3B3;
+    --primaryButton-bg-default: rgba(134, 70, 244, 1);
+    --bg-card: linear-gradient(
+        314.95deg,
+        rgba(58, 79, 191, 0) -1.92%,
+        rgba(134, 70, 244, 0.5) 85.51%
+    ),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+    --bg-card-hover: linear-gradient(
+        313deg,
+        rgba(134, 70, 244, 0.90) -3.11%,
+        rgba(58, 79, 191, 0.90) 86.8%
+    );
+    --font-Sub-Heading: 'Yaro', sans-serif !important;
+    --font-family: "Poppins", sans-serif !important;
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+.conatiner {
+    margin: 0 auto;
+}
+
+section {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 0;
+}
+
+button {
+    border: none;
+}
+
+.primaryButton {
+    display: flex;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: var(--primaryButton-bg-default);
+    font-weight: 700;
+    line-height: 26px;
+    text-align: center;
+    color: var(--text-white);
+}
+
+.primaryButton a {
+    color: var(--text-white);
+    text-decoration: none;
+}
+
+.sec-bg {
+    height: calc(100vh - 130px);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+}
+
+.sec-bg h2 {
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    color: var(--text-white);
+    font-family: var(--font-Sub-Heading);
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* navbar */
+.navbar {
+    width: 95%;
+    margin: 0 auto;
+    padding: 18px 0;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    background: rgba(9, 13, 31, 0.7);
+    backdrop-filter: blur(100px);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.navbar .navbar-brand img {
+    max-width: 260px;
+}
+
+.btn-close {
+    color: var(--text-white) !important;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.icon-user {
+    display: none;
+}
+
+.nav-link {
+    color: var(--text-white) !important;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.navbar-collapse {
+    background: rgba(9, 13, 31, 0.7);
+}
+
+button {
+    box-shadow: none !important;
+}
+
+.offcanvas {
+    background-color: rgba(9, 13, 31, 1) !important;
+    color: var(--text-white) !important;
+}
+
+#language-selector {
+    background-color: inherit;
+    border: none;
+    color: var(--text-white);
+}
+
+#language-selector option {
+    background: rgba(9, 13, 31, 0.7);
+    padding: 6px 4px;
+}
+
+@media (max-width: 1200px) {
+    .navbar-brand img {
+        max-width: 200px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-brand img {
+        max-width: 180px !important;
+    }
+
+    .icon-user {
+        display: block !important;
+    }
+
+    .nav-link {
+        color: #fff;
+        font-size: 18px;
+    }
+
+    .primaryButton {
+        padding: 6px 12px !important;
+    }
+
+    .primaryButton img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .navbar-toggler {
+        box-shadow: none;
+    }
+
+    .toggler-icon {
+        color: var(--text-white);
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+
+    .collapse {
+        display: none;
+    }
+
+    .collapse-screen {
+        display: none !important;
+    }
+
+    .collapse.show {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background: rgba(9, 13, 31, 0.7);
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-brand img {
+        max-width: 140px !important;
+    }
+
+    .nav-link {
+        color: var(--text-white);
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 992px) {
+    .collapse {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .collapse-screen {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        color: var(--text-white);
+        list-style: none;
+        margin-bottom: 0;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+}
+/* navbar */
+
+ footer
+.footer {
+    background: none !important;
+}
+
+.footer .container {
+    z-index: 999;
+    background: #0b0c1a;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer .container .footer-links {
+    display: flex;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.footer .container .footer-links a {
+    color: #d1d1e9;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 30px;
+}
+
+.footer .container .footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer .container .footer-links .footer-copyright {
+    font-size: 0.9rem;
+    color: #d1d1e9;
+    margin-top: 20px;
+}
+
+@media (max-width: 576px) {
+    .footer .container .footer-links {
+        flex-direction: column;
+    }
+
+    .footer .container .footer-links a {
+        margin-right: 0 !important;
+    }
+}
+
+/* footer */

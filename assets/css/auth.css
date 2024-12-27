@@ -1,0 +1,418 @@
+body {
+    font-family: var(--font-family);
+    background-color: rgb(16, 22, 53) !important;
+    backdrop-filter: blur(175px);
+    background-image: url(../svg/Animated\ BG.svg);
+    color: var(--text-white);
+    background-size: cover;
+    object-fit: fill;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--text-white);
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+.auth-form {
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+.auth-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../imgs/sectionlanding.png) center / cover no-repeat;
+    filter: grayscale(50%) brightness(60%);
+    transform: scale(1.1);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.card-sign-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 54px;
+    position: relative;
+    background: linear-gradient(to top left,#2b2f4d, #2b2f4d, #37646e); /* Gradient from top-right to bottom-left */
+    box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+}
+
+.card-sign-form .frame {
+    align-items: center;
+    gap: 18px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.card-sign-form .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    margin-top:0;
+}
+.card-sign-form .text p {
+    font-size:13px;
+}
+.card-sign-form .logo{
+    width: 190px;
+}
+.card-sign-form .heading {
+    position: relative;
+    width: fit-content;
+    font-weight: 700;
+    font-size: 1.7rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+
+.card-sign-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.card-sign-form .frame-2 {
+    align-items: center;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.card-sign-form .btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 36px;
+    border: 2px solid #e3e3e3;
+    box-shadow: 0 1px 2px #00000008;
+    cursor: pointer;
+}
+
+.card-sign-form .plus {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-top: -3.00px;
+}
+
+.card-sign-form .text-wrapper-2 {
+    position: relative;
+    width: fit-content;
+    font-weight: 700;
+    color: var(--text-white);
+    font-size: 14px;
+    letter-spacing: -0.18px;
+    line-height: 22px;
+    white-space: nowrap;
+}
+
+.card-sign-form .or {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.card-sign-form .vector {
+    position: relative;
+    flex: 1;
+    height: 2px;
+}
+
+.card-sign-form .text-wrapper-3 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+    white-space: nowrap;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.error-message2 {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    width: fit-content;
+    margin-top: 5px;
+    background-color: #8b1d1d;
+    padding: 5px 15px;
+    border-radius: 4px;
+}
+
+.error-message {
+    display:none;
+    width: fit-content;
+    margin-top: 5px;
+    background-color: #8b1d1d;
+    padding: 5px 15px;
+    border-radius: 4px;
+}
+.card-sign-form .input-filled-new {
+    display: flex;
+    width: 100%;
+    height:40px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: relative;
+    border-radius: 36px;
+    font-size:14px;
+}
+
+.card-sign-form .input-filled-new input {
+    padding: 10px 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    border: 2px solid #e3e3e3;
+}
+
+.input-filled-new input:hover, .input-filled-new input:focus,.btn-google:hover{
+    background: #03050640;
+}
+
+.card-sign-form .text-wrapper-4 {
+    position: relative;
+    flex: 1;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+
+.card-sign-form .password {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.card-sign-form .toggle-icon {
+    margin-left: auto;
+    display:flex;
+    align-items:center;
+    cursor:pointer;
+}
+.card-sign-form .text-input-icons {
+    position: relative;
+    width: 22px;
+
+    margin-left: auto;
+}
+
+.card-sign-form .text-wrapper-5 {
+    position: relative;
+    align-self: stretch;
+    font-weight: 700;
+    color:  #BD66E9;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 24px;
+    width: fit-content;
+    margin-top:2px;
+    margin-right: auto;
+}
+
+.card-sign-form .submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 0;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    background-color: var(--primaryButton-bg-default);
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    color: var(--text-white);
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+
+.card-sign-form .bottom {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.card-sign-form .extra-info {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-weight: 400;
+    color: transparent;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 27px;
+    white-space: nowrap;
+}
+
+.card-sign-form .span {
+    color: #ffffff;
+}
+
+.card-sign-form .text-wrapper-6 {
+    color: #a3aed0;
+}
+
+.card-sign-form .hyperlink {
+    position: relative;
+    width: fit-content;
+    font-weight: 700;
+    color: #BD66E9;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 27px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
+@media (max-width:767px) {
+    .card-sign-form{
+        padding: 20px 30px;
+    }
+
+}
+@media (max-width:480px) {
+
+    .auth-form {
+        height: auto !important;
+        padding: 86px 0 !important;
+    }
+    .card-sign-form{
+        width: 90%;
+    }
+    .card-sign-form .vector {
+
+        width: 12px;
+    }
+
+    .card-sign-form .frame {
+        gap: 10px !important;
+    }
+
+    .card-sign-form .heading {
+
+        font-size: 1.5rem !important;
+    }
+    .card-sign-form {
+        padding: 20px 10px;
+    }
+
+}
+
+.no-header {
+    height: 100vh !important;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    color: var(--text-white);
+    font-family: var(--font-Sub-Heading);
+}
+}
+.non-header::before {
+    content: '';
+    position: absolute;a
+top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../imgs/sectionlanding.png) 50% / cover no-repeat;
+    filter: grayscale(69%) brightness(50%) blur(3px);
+    transform: scale(1.2);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+@media (max-width: 480px) {
+    .no-header {
+        height: 100vh !important;
+    }
+}
+
+.submit:disabled {
+    background-color: #bf9df9;
+    color: #fff;
+    cursor: not-allowed;
+    opacity: 0.7;
+    border: 1px solid #aaa;
+}

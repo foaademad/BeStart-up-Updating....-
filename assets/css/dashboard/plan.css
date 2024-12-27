@@ -1,0 +1,136 @@
+li svg {
+    width: 20px;
+    height: 21px;
+    fill: none;
+}
+li svg:last-child {
+    width: 15px;
+    height: 18px;
+    fill: none;
+}
+.box-content {
+    background-color: var(--backColor-Base-sidebar-base);;
+    /* height: 90vh; */
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.pricing {
+    padding: 1.5rem 1rem;
+}
+
+.pricing-toggle {
+    display: flex;
+    justify-content: center;
+    background-color: #462c74;
+    border-radius: 25px;
+    width: 200px;
+    margin: auto;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+.toggle-button {
+    background-color: transparent;
+    color: rgba(202, 202, 202, 0.603);
+    border-radius: 25px !important;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px 22px;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button.active {
+    background-color: #3C1F6E;
+    color: white;
+}
+
+.pricing-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.pricing-card {
+    /*background-color: #C3A3FA4D;*/
+    background-color: #e3dbf8;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.8rem;
+    width: 320px;
+}
+.dark .pricing-card {
+    /*background-color: #C3A3FA4D;*/
+    background-color: #d9ccf2;
+}
+.pricing-card-header {
+    color:#0C1A67;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 0.8rem;
+}
+
+.price {
+    color:#0C1A67;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.price span {
+    font-size: 0.7rem;
+    color: #666;
+}
+
+.price-description {
+    margin-bottom: 0.8rem;
+    color: #828BA6;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 140%; /* 22px */
+}
+
+.features-pricing {
+    padding: 0;
+    margin-bottom: 1.2rem;
+}
+
+.features-pricing li {
+    margin-bottom: 0.4rem;
+    color: #0C1A67;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 140%; /* 22px */
+    text-transform: capitalize;
+}
+
+.trial-button {
+    background-color: #5f55ad;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.trial-button:hover {
+    background-color: #514a8c;
+}
+hr{
+    /*color:#adabd4;*/
+    color:#313150;
+}

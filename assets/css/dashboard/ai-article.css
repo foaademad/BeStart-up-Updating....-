@@ -1,0 +1,257 @@
+.box-content {
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ql-container{
+    height:92% !important;
+}
+.container-ai-writing {
+  position: relative;
+  color: var(--Color-Text-sideBar-text-color);
+  background-color: var(--backColor-Base-white);
+  flex: 1;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.container-fluidof-ai-writing {
+  display: flex;
+  gap: 15px;
+  flex: 1;
+  height: 100%;
+}
+
+.container-rightof-ai-writing {
+
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .box-content {
+    height: auto;
+    min-height: calc(100vh - 100px) !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .container-fluidof-ai-writing {
+    flex-direction: column;
+  }
+
+  .left-part-ofcode {
+    width: 100% !important;
+  }
+
+  .left-part-ofcode .form-container {
+    width: 100% !important;
+  }
+
+  .left-part-ofcode textarea {
+    height: 90px !important;
+  }
+
+  .container-ai-writing {
+    width: 100% !important;
+  }
+
+  .ql-container {
+    height: 500px;
+  }
+
+  .form-container form {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+  }
+
+  .form-container form div:nth-child(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;/
+  }
+
+  .form-container form div:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .form-container form div:nth-child(3) {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .form-container form button:nth-child(4) {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+  }
+    .ql-editor{
+        min-height: 300px !important;
+    }
+}
+
+
+
+
+
+.ql-snow .ql-picker.ql-font {
+  width: 82px;
+}
+
+.ql-snow .ql-picker.ql-size {
+  width: 64px;
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+  margin-right: 0 !important;
+}
+
+.ql-snow .ql-picker-label {
+  padding-left: 0;
+}
+
+.ql-snow .ql-picker:not(.ql-color-picker):not(.ql-icon-picker) svg {
+  margin-top: -12px;
+}
+
+.ql-editor {
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  background: #f1f3f8;
+  /*background:var(--backColor-Base-sidebar-base);*/
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  height: 96%;
+}
+.dark .ql-editor{
+    color:#000;
+}
+.ql-toolbar {
+  background: #cac4f7;
+  border: none !important;
+}
+
+.ql-editing {
+  left: 1px !important;
+  top: -9.913px !important;
+}
+
+.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  color: #444 !important;
+}
+
+.ql-snow .ql-picker.ql-expanded svg {
+  color: #444 !important;
+  fill: #444 !important;
+}
+.dark .ql-snow .ql-stroke {
+    stroke:#fff !important;
+}
+
+.dark .ql-fill{
+    fill:#fff !important;
+    stroke:#fff !important;
+}
+.dark .ql-snow .ql-picker-label::before {
+    color:#fff !important;
+}
+
+/* ========================================= */
+/* code generation  */
+/* Form Container */
+.left-part-ofcode {
+  height: 100%;
+}
+
+.left-part-ofcode .form-container {
+  background-color: var(--backColor-Base-sidebar-base);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 296px;
+  height: 100%;
+}
+
+.left-part-ofcode .form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.left-part-ofcode label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--Color-Text-sideBar-text-color);
+
+}
+
+/* Dropdown */
+.left-part-ofcode select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Textarea */
+.left-part-ofcode textarea, .text {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 8px;
+  resize: none;
+  font-size: 14px;
+  color: #666;
+}
+
+.new-chat-button {
+    margin-top: 15px;
+    background-color: #5f55ad;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 15px;
+    width:100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-chat-button:hover {
+    background-color: #514a8c;
+}
+
+@media (min-width:991px) {
+  .left-part-ofcode textarea {
+    height: 240px;
+  }
+}
+
+.new-chat-button {
+  margin-top: 0;
+}
+
+.ql-container.ql-snow{
+    border:none !important;
+}
+textarea, input, select{
+    background: none;
+}
+.form-control{
+    background: none !important;
+}
+
+option {
+    background-color: #2a2d3f !important; /* Change the background color of options */
+    color: var(--Color-Text-sideBar-text-color)  !important; /* Change the text color */
+}

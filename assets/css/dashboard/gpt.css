@@ -496,3 +496,28 @@
 }
 
 
+/* for make a new chat  */
+
+        .recent-chats {
+            max-height: 700px;
+            overflow-y: auto;
+        }
+
+        .chat-item {
+            padding: 10px;
+            margin-bottom: 5px!important;
+
+            background-color: #e9ecef;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .chat-item.active {
+            background-color: #007bff;
+            color: #fff;
+            
+        }
+
+        .chat-item i {
+            margin-right: 5px;
+        }

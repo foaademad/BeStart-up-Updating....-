@@ -61,33 +61,70 @@ fileInput.addEventListener("change", () => {
     file = fileInput.files[0];
 
     if (file) {
+        // Check if file is video or audio
+        if (file.type.startsWith("video/") || file.type.startsWith("audio/")) {
+            fileInput.value = ""; // Clear the file input
+            return;
+        }
+
         const pdfPreview = document.createElement("div");
         pdfPreview.className = "pdf-preview";
-
         const fileURL = URL.createObjectURL(file);
         iconSend.style.opacity = 1;
 
-        // إضافة محتوى المعاينة
-        pdfPreview.innerHTML = `
-      <span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" class="h-10 w-10 flex-shrink-0" width="36" height="36">
-          <rect width="36" height="36" rx="6" fill="#FF5588"></rect>
-          <path d="M19.6663 9.66663H12.9997C12.5576 9.66663 12.1337 9.84222 11.8212 10.1548C11.5086 10.4673 11.333 10.8913 11.333 11.3333V24.6666C11.333 25.1087 11.5086 25.5326 11.8212 25.8451C12.1337 26.1577 12.5576 26.3333 12.9997 26.3333H22.9997C23.4417 26.3333 23.8656 26.1577 24.1782 25.8451C24.4907 25.5326 24.6663 25.1087 24.6663 24.6666V14.6666L19.6663 9.66663Z" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M19.667 9.66663V14.6666H24.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M21.3337 18.8334H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M21.3337 22.1666H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M16.3337 15.5H15.5003H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-      </span>
-      <p>${file.name}</p>
-      <button class="clear-btn">
-      <span>
-        <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-xs">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M7.30286 6.80256C7.89516 6.21026 8.85546 6.21026 9.44775 6.80256L14.5003 11.8551L19.5529 6.80256C20.1452 6.21026 21.1055 6.21026 21.6978 6.80256C22.2901 7.39485 22.2901 8.35515 21.6978 8.94745L16.6452 14L21.6978 19.0526C22.2901 19.6449 22.2901 20.6052 21.6978 21.1974C21.1055 21.7897 20.1452 21.7897 19.5529 21.1974L14.5003 16.1449L9.44775 21.1974C8.85546 21.7897 7.89516 21.7897 7.30286 21.1974C6.71057 20.6052 6.71057 19.6449 7.30286 19.0526L12.3554 14L7.30286 8.94745C6.71057 8.35515 6.71057 7.39485 7.30286 6.80256Z" fill="currentColor"></path>
-        </svg>
-        </span>
-      </button>
-    `;
+        // Function to get appropriate icon based on file type
+        const getFileIcon = (fileType) => {
+            if (fileType === "application/pdf") {
+                return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 18H17V16H7V18Z" fill="currentColor"/>
+                    <path d="M17 14H7V12H17V14Z" fill="currentColor"/>
+                    <path d="M7 10H11V8H7V10Z" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.34315 2 3 3.34315 3 5V19C3 20.6569 4.34315 22 6 22H18C19.6569 22 21 20.6569 21 19V9C21 5.13401 17.866 2 14 2H6ZM6 4H13V9H19V19C19 19.5523 18.5523 20 18 20H6C5.44772 20 5 19.5523 5 19V5C5 4.44772 5.44772 4 6 4ZM15 4.10002C16.6113 4.4271 17.9413 5.52906 18.584 7H15V4.10002Z" fill="currentColor"/>
+                </svg>`;
+            } else if (fileType === "application/vnd.ms-powerpoint" || fileType === "application/vnd.openxmlformats-officedocument.presentationml.presentation") {
+                return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.34315 2 3 3.34315 3 5V19C3 20.6569 4.34315 22 6 22H18C19.6569 22 21 20.6569 21 19V9C21 5.13401 17.866 2 14 2H6ZM6 4H13V9H19V19C19 19.5523 18.5523 20 18 20H6C5.44772 20 5 19.5523 5 19V5C5 4.44772 5.44772 4 6 4ZM15 4.10002C16.6113 4.4271 17.9413 5.52906 18.584 7H15V4.10002Z" fill="#D04423"/>
+                    <path d="M12 12H8V14H10V18H12V12Z" fill="#D04423"/>
+                </svg>`;
+            } else if (fileType === "application/vnd.ms-excel" || fileType === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.34315 2 3 3.34315 3 5V19C3 20.6569 4.34315 22 6 22H18C19.6569 22 21 20.6569 21 19V9C21 5.13401 17.866 2 14 2H6ZM6 4H13V9H19V19C19 19.5523 18.5523 20 18 20H6C5.44772 20 5 19.5523 5 19V5C5 4.44772 5.44772 4 6 4ZM15 4.10002C16.6113 4.4271 17.9413 5.52906 18.584 7H15V4.10002Z" fill="#217346"/>
+                    <path d="M8 12L10 16H12L10 12L12 8H10L8 12Z" fill="#217346"/>
+                    <path d="M14 12L16 16H18L16 12L18 8H16L14 12Z" fill="#217346"/>
+                </svg>`;
+            } else {
+                return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.34315 2 3 3.34315 3 5V19C3 20.6569 4.34315 22 6 22H18C19.6569 22 21 20.6569 21 19V9C21 5.13401 17.866 2 14 2H6ZM6 4H13V9H19V19C19 19.5523 18.5523 20 18 20H6C5.44772 20 5 19.5523 5 19V5C5 4.44772 5.44772 4 6 4ZM15 4.10002C16.6113 4.4271 17.9413 5.52906 18.584 7H15V4.10002Z" fill="currentColor"/>
+                </svg>`;
+            }
+        };
+
+        if (file.type.startsWith("image/")) {
+            pdfPreview.innerHTML = `
+                <img src="${fileURL}" alt="Uploaded Image" class="uploaded-image-preview" style="max-width: 100px; max-height: 100px; object-fit: cover;">
+                <button class="clear-btn">
+                    <span>
+                        <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-xs">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.30286 6.80256C7.89516 6.21026 8.85546 6.21026 9.44775 6.80256L14.5003 11.8551L19.5529 6.80256C20.1452 6.21026 21.1055 6.21026 21.6978 6.80256C22.2901 7.39485 22.2901 8.35515 21.6978 8.94745L16.6452 14L21.6978 19.0526C22.2901 19.6449 22.2901 20.6052 21.6978 21.1974C21.1055 21.7897 20.1452 21.7897 19.5529 21.1974L14.5003 16.1449L9.44775 21.1974C8.85546 21.7897 7.89516 21.7897 7.30286 21.1974C6.71057 20.6052 6.71057 19.6449 7.30286 19.0526L12.3554 14L7.30286 8.94745C6.71057 8.35515 6.71057 7.39485 7.30286 6.80256Z" fill="currentColor"></path>
+                        </svg>
+                    </span>
+                </button>
+            `;
+        } else {
+            pdfPreview.innerHTML = `
+                <div class="file-preview-container" style="display: flex; align-items: center; gap: 8px;">
+                    <span class="file-icon">${getFileIcon(file.type)}</span>
+                    <p>${file.name}</p>
+                </div>
+                <button class="clear-btn">
+                    <span>
+                        <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-xs">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.30286 6.80256C7.89516 6.21026 8.85546 6.21026 9.44775 6.80256L14.5003 11.8551L19.5529 6.80256C20.1452 6.21026 21.1055 6.21026 21.6978 6.80256C22.2901 7.39485 22.2901 8.35515 21.6978 8.94745L16.6452 14L21.6978 19.0526C22.2901 19.6449 22.2901 20.6052 21.6978 21.1974C21.1055 21.7897 20.1452 21.7897 19.5529 21.1974L14.5003 16.1449L9.44775 21.1974C8.85546 21.7897 7.89516 21.7897 7.30286 21.1974C6.71057 20.6052 6.71057 19.6449 7.30286 19.0526L12.3554 14L7.30286 8.94745C6.71057 8.35515 6.71057 7.39485 7.30286 6.80256Z" fill="currentColor"></path>
+                        </svg>
+                    </span>
+                </button>
+            `;
+        }
 
         containerChat.prepend(pdfPreview);
         iconSend.style.pointerEvents = "auto";
@@ -95,6 +132,8 @@ fileInput.addEventListener("change", () => {
         iconSend.style.cursor = "pointer";
     }
 });
+
+
 
 containerChat.addEventListener("click", clearFileInput);
 
@@ -104,9 +143,9 @@ const sendChat = document.getElementById("send-chat")
 const allChat = document.querySelector(".all-chat")
 
 
-const newChat = () => {
-    allChat.innerHTML = ""
-}
+// const newChat = () => {
+//     allChat.innerHTML = ""
+// }
 
 
 
@@ -274,3 +313,249 @@ document.querySelector(".overlay-history").addEventListener("click", () => {
     document.querySelector(".overlay-history").classList.remove("open");
     document.querySelector(".history-box").classList.remove("open")
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// =======================================================================
+// make a new chat 
+const chatListSmall = document.getElementById("chat-list-small");
+const chatListLarge = document.getElementById("chat-list-large");
+let chatCounter = 0;
+
+// Event listener for small chat list
+chatListSmall.addEventListener("click", function (event) {
+    handleChatItemClick(event, chatListSmall, chatListLarge);
+});
+
+// Event listener for large chat list
+chatListLarge.addEventListener("click", function (event) {
+    handleChatItemClick(event, chatListLarge, chatListSmall);
+});
+
+// Handle chat item click
+function handleChatItemClick(event, sourceList, targetList) {
+    if (event.target && event.target.matches(".chat-item")) {
+        console.log("Chat item clicked");
+
+        // Remove active class from all items in both lists
+        document.querySelectorAll(".chat-item").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        // Add active class to clicked item
+        event.target.classList.add("active");
+
+        // Sync active state with other list
+        const clickedIndex = Array.from(sourceList.children).indexOf(event.target);
+        targetList.children[clickedIndex].classList.add("active");
+    }
+}
+
+// Create new chat when button is clicked
+function newChat() {
+    console.log("Button clicked");
+
+    const chatContainer = document.getElementById("chat");
+    if (!chatContainer || chatContainer.children.length === 0) {
+        console.log("No messages available to create new chat item.");
+        return;
+    }
+
+    chatCounter++;
+
+    // Create and add new chat item to small list
+    const newChatItem = createChatItem(chatCounter);
+    chatListSmall.prepend(newChatItem);
+
+    // Create and add new chat item to large list
+    const newChatItemClone = createChatItem(chatCounter);
+    chatListLarge.prepend(newChatItemClone);
+
+    // Remove active class from all items
+    document.querySelectorAll(".chat-item").forEach((item) => {
+        item.classList.remove("active");
+    });
+
+    // Add active class to new items
+    newChatItem.classList.add("active");
+    newChatItemClone.classList.add("active");
+}
+
+// Handle first message in chat
+function handleFirstMessage() {
+    // Check if chat history is empty
+    if (chatListSmall.children.length === 0) {
+        chatCounter++;
+
+        // Create first chat item
+        const newChatItem = createChatItem(chatCounter);
+        const newChatItemClone = createChatItem(chatCounter);
+
+        // Add active class
+        newChatItem.classList.add("active");
+        newChatItemClone.classList.add("active");
+
+        // Add to both lists
+        chatListSmall.prepend(newChatItem);
+        chatListLarge.prepend(newChatItemClone);
+    }
+}
+
+// Create chat item element
+function createChatItem(counter) {
+    const newChatItem = document.createElement("li");
+    newChatItem.classList.add("chat-item");
+    newChatItem.innerHTML = `<i class="far fa-comment-alt"></i> Chat topic #${counter}`;
+    return newChatItem;
+}
+
+// Send message event listener
+document.getElementById("send-chat").addEventListener("click", function () {
+    const textarea = document.getElementById("textarea-chat");
+    const message = textarea.value.trim();
+
+    if (message) {
+        // Check and create first history item if needed
+        handleFirstMessage();
+
+        // Your existing send message logic here
+        // sendMessage(message);
+
+        // Clear textarea
+        textarea.value = "";
+    }
+});
+
+// File upload event listener
+document.getElementById("upload").addEventListener("click", function () {
+    const fileInput = document.getElementById("file-input");
+    fileInput.click();
+
+    fileInput.addEventListener("change", function () {
+        if (this.files && this.files[0]) {
+            // Check and create first history item if needed
+            handleFirstMessage();
+
+            // Your existing file upload logic here
+            // uploadFile(this.files[0]);
+        }
+    });
+});
+
+// Delete active chat
+function deleteActiveChat() {
+    const activeSmall = chatListSmall.querySelector(".chat-item.active");
+    const activeLarge = chatListLarge.querySelector(".chat-item.active");
+
+    if (activeSmall) {
+        activeSmall.remove();
+    }
+    if (activeLarge) {
+        activeLarge.remove();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ===================================================================
+// remove item and chat 
+// تعريف القوائم
+// وظيفة لحذف العنصر النشط وجعل العنصر الذي تحته هو النشط
+function deleteActiveChat() {
+    // البحث عن العنصر النشط في القائمة الكبيرة
+    const activeChatLarge = chatListLarge.querySelector(".chat-item.active");
+    // البحث عن العنصر النشط في القائمة الصغيرة
+    const activeChatSmall = chatListSmall.querySelector(".chat-item.active");
+
+    // إذا لم يوجد عنصر نشط في أي من القائمتين، لا تفعل شيئًا
+    if (!activeChatLarge && !activeChatSmall) {
+        console.log("No active chat to delete.");
+        return;
+    }
+
+    // تحديد العنصر التالي في القائمة الكبيرة
+    const nextChatLarge = activeChatLarge ? activeChatLarge.nextElementSibling : null;
+    // تحديد العنصر التالي في القائمة الصغيرة
+    const nextChatSmall = activeChatSmall ? activeChatSmall.nextElementSibling : null;
+
+    // حذف العنصر النشط من القائمتين إذا كان موجودًا
+    if (activeChatLarge) {
+        chatListLarge.removeChild(activeChatLarge);
+    }
+    if (activeChatSmall) {
+        chatListSmall.removeChild(activeChatSmall);
+    }
+
+    // إذا وُجد عنصر التالي في القائمة الكبيرة، اجعله نشطًا
+    if (nextChatLarge) {
+        nextChatLarge.classList.add("active");
+    }
+    // إذا وُجد عنصر التالي في القائمة الصغيرة، اجعله نشطًا
+    if (nextChatSmall) {
+        nextChatSmall.classList.add("active");
+    }
+}

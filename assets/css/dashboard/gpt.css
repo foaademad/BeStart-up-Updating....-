@@ -97,6 +97,10 @@
     margin:auto;
     /*font-size: 2.2rem;*/
     font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70Vh;
 
 }
 

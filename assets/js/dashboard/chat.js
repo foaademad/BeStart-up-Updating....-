@@ -466,38 +466,33 @@ document.getElementById("upload").addEventListener("click", function () {
     // ===================================================================
     // remove item and chat
     //** */ =======================================================================
-    function deleteActiveChat() {
-        // البحث عن العنصر النشط في القائمة الكبيرة
-        const activeChatLarge = chatListLarge.querySelector(".chat-item.active");
-        // البحث عن العنصر النشط في القائمة الصغيرة
-        const activeChatSmall = chatListSmall.querySelector(".chat-item.active");
+   function deleteActiveChat() {
+       // البحث عن العنصر النشط في القائمة الكبيرة
+       const activeChatLarge = chatListLarge.querySelector(".chat-item.active");
+       // البحث عن العنصر النشط في القائمة الصغيرة
+       const activeChatSmall = chatListSmall.querySelector(".chat-item.active");
 
-        // إذا لم يوجد عنصر نشط في أي من القائمتين، لا تفعل شيئًا
-        if (!activeChatLarge && !activeChatSmall) {
-            console.log("No active chat to delete.");
-            return;
-        }
+       // إذا لم يوجد عنصر نشط في أي من القائمتين، لا تفعل شيئًا
+       if (!activeChatLarge && !activeChatSmall) {
+           console.log("No active chat to delete.");
+           return;
+       }
 
-        // تحديد العنصر التالي في القائمة الكبيرة
-        const nextChatLarge = activeChatLarge ? activeChatLarge.nextElementSibling : null;
-        // تحديد العنصر التالي في القائمة الصغيرة
-        const nextChatSmall = activeChatSmall ? activeChatSmall.nextElementSibling : null;
+       // حذف العنصر النشط من القائمتين إذا كان موجودًا
+       if (activeChatLarge) {
+           chatListLarge.removeChild(activeChatLarge);
+       }
+       if (activeChatSmall) {
+           chatListSmall.removeChild(activeChatSmall);
+       }
 
-        // حذف العنصر النشط من القائمتين إذا كان موجودًا
-        if (activeChatLarge) {
-            chatListLarge.removeChild(activeChatLarge);
-        }
-        if (activeChatSmall) {
-            chatListSmall.removeChild(activeChatSmall);
-        }
+       // مسح الشات وعرض رسالة الترحيب
+       const chatContainer = document.getElementById("chat");
+       chatContainer.innerHTML = `<div class="welcome">
+                                <h4 class="welcome-msg">What can I help with?</h4>
+                              </div>`;
 
-        // إذا وُجد عنصر التالي في القائمة الكبيرة، اجعله نشطًا
-        if (nextChatLarge) {
-            nextChatLarge.classList.add("active");
-        }
-        // إذا وُجد عنصر التالي في القائمة الصغيرة، اجعله نشطًا
-        if (nextChatSmall) {
-            nextChatSmall.classList.add("active");
-        }
-    }
+       console.log("Active chat deleted and chat cleared.");
+   }
+
 

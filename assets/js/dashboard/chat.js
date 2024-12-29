@@ -300,149 +300,157 @@
         document.querySelector(".history-box").classList.remove("open");
     });
 
+
+
+
+
+
+
+
+    
     /////////////////////////////////////////////////
     //** */ =======================================================================
     // make a new chat
+const chatListSmall = document.getElementById("chat-list-small");
+const chatListLarge = document.getElementById("chat-list-large");
+let chatCounter = 0;
 
+// Event listener for small chat list
+chatListSmall.addEventListener("click", function (event) {
+    handleChatItemClick(event, chatListSmall, chatListLarge);
+});
 
-    const chatListSmall = document.getElementById("chat-list-small");
-    const chatListLarge = document.getElementById("chat-list-large");
-    let chatCounter = 0;
+// Event listener for large chat list
+chatListLarge.addEventListener("click", function (event) {
+    handleChatItemClick(event, chatListLarge, chatListSmall);
+});
 
-    // Event listener for small chat list
-    chatListSmall.addEventListener("click", function (event) {
-        handleChatItemClick(event, chatListSmall, chatListLarge);
-    });
+// Handle chat item click
+function handleChatItemClick(event, sourceList, targetList) {
+    if (event.target && event.target.matches(".chat-item")) {
+        console.log("Chat item clicked");
 
-    // Event listener for large chat list
-    chatListLarge.addEventListener("click", function (event) {
-        handleChatItemClick(event, chatListLarge, chatListSmall);
-    });
-
-    // Handle chat item click
-    function handleChatItemClick(event, sourceList, targetList) {
-        if (event.target && event.target.matches(".chat-item")) {
-            console.log("Chat item clicked");
-
-            // Remove active class from all items in both lists
-            document.querySelectorAll(".chat-item").forEach((item) => {
-                item.classList.remove("active");
-            });
-
-            // Add active class to clicked item
-            event.target.classList.add("active");
-
-            // Sync active state with other list
-            const clickedIndex = Array.from(sourceList.children).indexOf(event.target);
-            targetList.children[clickedIndex].classList.add("active");
-        }
-    }
-
-    // Create new chat when button is clicked
-    document.getElementById("new-chat-btn").addEventListener("click", newChat);
-    function newChat() {
-        console.log("Button clicked");
-
-        const chatContainer = document.getElementById("chat");
-        if (!chatContainer || chatContainer.children.length === 0) {
-            console.log("No messages available to create new chat item.");
-            return;
-        }
-
-        chatCounter++;
-
-        // Create and add new chat item to small list
-        const newChatItem = createChatItem(chatCounter);
-        chatListSmall.prepend(newChatItem);
-
-        // Create and add new chat item to large list
-        const newChatItemClone = createChatItem(chatCounter);
-        chatListLarge.prepend(newChatItemClone);
-
-        // Remove active class from all items
+        // Remove active class from all items in both lists
         document.querySelectorAll(".chat-item").forEach((item) => {
             item.classList.remove("active");
         });
 
-        // Add active class to new items
+        // Add active class to clicked item
+        event.target.classList.add("active");
+
+        // Sync active state with other list
+        const clickedIndex = Array.from(sourceList.children).indexOf(event.target);
+        targetList.children[clickedIndex].classList.add("active");
+    }
+}
+
+// Create new chat when button is clicked
+document.getElementById("new-chat-btn").addEventListener("click", newChat);
+function newChat() {
+    console.log("Button clicked");
+
+    const chatContainer = document.getElementById("chat");
+    const textarea = document.getElementById("textarea-chat");
+    const message = textarea.value.trim(); // Get the message from the textarea
+
+    if (!message) {
+        console.log("No message available, cannot create new chat item.");
+        return; // If no message is entered, do nothing
+    }
+
+    // If message exists, proceed with creating the chat
+    chatCounter++;
+
+    // Remove all existing messages
+    chatContainer.innerHTML = "";
+
+    // Display welcome message
+    const welcomeDiv = document.createElement("div");
+    welcomeDiv.classList.add("welcome");
+    welcomeDiv.innerHTML = `<h4 class="welcome-msg">What can I help with?</h4>`;
+    chatContainer.appendChild(welcomeDiv);
+
+    // Create and add new chat item to small list
+    const newChatItem = createChatItem(chatCounter);
+    chatListSmall.prepend(newChatItem);
+
+    // Create and add new chat item to large list
+    const newChatItemClone = createChatItem(chatCounter);
+    chatListLarge.prepend(newChatItemClone);
+
+    // Remove active class from all items
+    document.querySelectorAll(".chat-item").forEach((item) => {
+        item.classList.remove("active");
+    });
+
+    // Add active class to new items
+    newChatItem.classList.add("active");
+    newChatItemClone.classList.add("active");
+
+    // Clear the textarea
+    textarea.value = "";
+}
+
+// Handle first message in chat
+function handleFirstMessage() {
+    // Check if chat history is empty
+    if (chatListSmall.children.length === 0) {
+        chatCounter++;
+
+        // Create first chat item
+        const newChatItem = createChatItem(chatCounter);
+        const newChatItemClone = createChatItem(chatCounter);
+
+        // Add active class
         newChatItem.classList.add("active");
         newChatItemClone.classList.add("active");
+
+        // Add to both lists
+        chatListSmall.prepend(newChatItem);
+        chatListLarge.prepend(newChatItemClone);
     }
+}
 
-    // Handle first message in chat
-    function handleFirstMessage() {
-        // Check if chat history is empty
-        if (chatListSmall.children.length === 0) {
-            chatCounter++;
+// Create chat item element
+function createChatItem(counter) {
+    const newChatItem = document.createElement("li");
+    newChatItem.classList.add("chat-item");
+    newChatItem.innerHTML = `<i class="far fa-comment-alt"></i> Chat topic #${counter}`;
+    return newChatItem;
+}
 
-            // Create first chat item
-            const newChatItem = createChatItem(chatCounter);
-            const newChatItemClone = createChatItem(chatCounter);
+// Send message event listener
+document.getElementById("send-chat").addEventListener("click", function () {
+    const textarea = document.getElementById("textarea-chat");
+    const message = textarea.value.trim();
 
-            // Add active class
-            newChatItem.classList.add("active");
-            newChatItemClone.classList.add("active");
+    if (message) {
+        // Check and create first history item if needed
+        handleFirstMessage();
 
-            // Add to both lists
-            chatListSmall.prepend(newChatItem);
-            chatListLarge.prepend(newChatItemClone);
-        }
+        // Your existing send message logic here
+        // sendMessage(message);
+
+        // Clear textarea
+        textarea.value = "";
     }
+});
 
-    // Create chat item element
-    function createChatItem(counter) {
-        const newChatItem = document.createElement("li");
-        newChatItem.classList.add("chat-item");
-        newChatItem.innerHTML = `<i class="far fa-comment-alt"></i> Chat topic #${counter}`;
-        return newChatItem;
-    }
+// File upload event listener
+document.getElementById("upload").addEventListener("click", function () {
+    const fileInput = document.getElementById("file-input");
+    fileInput.click();
 
-    // Send message event listener
-    document.getElementById("send-chat").addEventListener("click", function () {
-        const textarea = document.getElementById("textarea-chat");
-        const message = textarea.value.trim();
-
-        if (message) {
+    fileInput.addEventListener("change", function () {
+        if (this.files && this.files[0]) {
             // Check and create first history item if needed
             handleFirstMessage();
 
-            // Your existing send message logic here
-            // sendMessage(message);
-
-            // Clear textarea
-            textarea.value = "";
+            // Your existing file upload logic here
+            // uploadFile(this.files[0]);
         }
     });
-
-    // File upload event listener
-    document.getElementById("upload").addEventListener("click", function () {
-        const fileInput = document.getElementById("file-input");
-        fileInput.click();
-
-        fileInput.addEventListener("change", function () {
-            if (this.files && this.files[0]) {
-                // Check and create first history item if needed
-                handleFirstMessage();
-
-                // Your existing file upload logic here
-                // uploadFile(this.files[0]);
-            }
-        });
-    });
-
-
-    // Delete active chat
-    function deleteActiveChat() {
-        const activeSmall = chatListSmall.querySelector(".chat-item.active");
-        const activeLarge = chatListLarge.querySelector(".chat-item.active");
-
-        if (activeSmall) {
-            activeSmall.remove();
-        }
-        if (activeLarge) {
-            activeLarge.remove();
-        }
-    }
+});
 
 
 

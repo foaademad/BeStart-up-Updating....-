@@ -316,7 +316,7 @@
             <div class="chat-box">
                 <!-- for full screen -->
                 <div class="chat-container">
-                    <button class="new-chat-button" onclick="newChat()">New Chat</button>
+                    <button class="new-chat-button" id="new-chat-btn">New Chat</button>
                     <div class="recent-chats">
                         <ul class="chat-list" id="chat-list-large">
                             <!-- <li class="chat-item active"><i class="far fa-comment-alt"></i> Chat topic #1</li> -->
@@ -328,7 +328,7 @@
                 <div class="analysis-container">
                     <div class="icon-chat">
                         <div class="underpages">
-                            <p>{{ \Illuminate\Support\Str::limit($chat->description, 90, '...') }}</p>
+                            <p>pppppppppppppp</p>
                         </div>
                         <!-- for small screen  -->
                         <div class="history-box">
@@ -363,7 +363,7 @@
                     </div>
                     <!-- the body of chat  -->
                     <div class="all-chat" id='chat'>
-                        <!-- <div class="prompt-area-chat">
+                        <div class="prompt-area-chat">
                             <div class="icon">
                                 <span>
             
@@ -379,7 +379,7 @@
                                 </div>
                              </pre>
                             
-                        </div>  -->
+                        </div> 
                     </div>
             
                     <div class="welcome">
@@ -415,8 +415,8 @@
                                     </svg>
                                 </span>
             
-            
-                                <button type="submit" id="send-chat">
+                                <!-- send chat  -->
+                                <button type="submit" id="send-chat" >
                                     <span>
                                         <svg viewBox="0 0 42 41">
                                             <g id="Vector">
@@ -468,7 +468,7 @@
  
    <!-- home script  -->
     
-    <script src="../assets/js/landing.js"></script>
+    <!-- <script src="../assets/js/landing.js"></script> -->
 
  <!-- change dir -->
     <script>

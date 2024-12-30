@@ -77,3 +77,8 @@ p {
 p.text-white {
     margin-bottom: 0;
 }
+/* rtl direction  */
+body.rtl .content div ul {
+  padding-right: 2rem;
+  padding-left: 0;
+}

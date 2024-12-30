@@ -109,3 +109,8 @@ body::before {
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
 }
+/* / rtl direction  */
+body.rtl .faq-question span {
+  margin-left: 10px;
+  margin-right: 0;
+}

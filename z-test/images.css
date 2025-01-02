@@ -1,0 +1,185 @@
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+}
+.card.hide {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+@media (max-width:992px) {
+    .card-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(4, minmax(164px, 1fr));
+    }
+    .filter-btn{
+        padding: 6px 1px;
+    }
+}
+@media (max-width:767px) {
+    .card-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, minmax(164px, 1fr));
+    }
+}
+@media (max-width:580px) {
+    .card-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(1, minmax(164px, 1fr));
+    }
+}
+.card {
+    overflow: hidden;
+    height: 200px;
+    display: flex;
+    border:none;
+    border-radius: 10px;
+    color: var(--Color-Text-sideBar-text-color);
+    background-color: var(--backColor-Base-sidebar-base);
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    cursor:pointer;
+}
+
+/* model */
+.modal, .card_modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    display:flex;
+    flex-direction: column;
+    background: #1a1d2b;
+    /*width: 500px;*/
+    width: 70%;
+    height:350px;
+    margin: 50px auto;
+    border-radius: 8px;
+    color: var(--Color-Text-sideBar-text-color);
+    top: 100px;
+}
+.card-body{
+    padding:20px;
+}
+.card-text{
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+.modal-content img{
+    border-radius: 8px 0 0 8px;
+    height:350px;
+    /*max-height:280px;*/
+}
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 16px;
+    border:none !important;
+}
+.close-btn {
+
+    background: none;
+    border: none;
+    color: #696969;
+    font-size: 24px;
+    cursor: pointer;
+
+}
+
+.show {
+    display: block;
+}
+/* ///////////////////////////////////////////////////// */
+/* photo style */
+
+.image-container {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+.card-image {
+    width: 100%;
+    /*height: 100%;*/
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+.prompt-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    font-size: 10px;
+    line-height: 1.6;
+    display: none; /* Initially hidden */
+}
+.image-container:hover .prompt-text {
+    display: block; /* Show prompt text on hover */
+}
+.download-btn {
+    bottom: 20px;
+    background: white;
+    border: none;
+    margin-top: 5px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* 400px */
+@media (max-width: 510px) {
+    .modal-content {
+        width: auto;
+        margin: 10px;
+    }
+}
+
+
+.contentOfModel {
+    background: var(--backColor-Base-sidebar-base);
+    position: relative;
+}
+
+.actionOfPormpet button {
+background-color: transparent;
+
+
+}
+
+.actionOfPormpet{
+    position: absolute;
+    padding: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* padding: 10px; */
+    display: flex;
+    gap: 20px;
+    /* justify-content: space-between; */
+}
+
+@media (max-width: 767px) {
+   .actionOfPormpet{
+    position: relative;
+    padding: 10px 0;
+   }
+}

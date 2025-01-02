@@ -14,10 +14,82 @@
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/home.css"> 
     <link rel="stylesheet" href="../assets/css/dashboard/main.css">
-
-    <link rel="stylesheet" href="../assets/css/privacy.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-dark.min.css">
-
+    <style>
+        .welcome-section {
+            flex: 1;
+            padding: 50px;
+            /*background: url(../../../assets/imgs/gradient2.jpg) no-repeat top;*/
+            background: linear-gradient(to top left, #2b2f4d, #2b2f4d, #37646e);
+            /* Gradient from top-right to bottom-left */
+            background-size: cover;
+            border-radius: 10px;
+            height: 150px;
+            margin-right: 10px;
+        }
+    
+        .welcome-section {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+    
+        .welcome-section h1 {
+            font-size: 26px;
+            margin: 0;
+            color: #fff;
+            font-weight: 500;
+        }
+    
+        .welcome-section p {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 5px 0;
+            color: #ddd;
+            text-align: center;
+        }
+    
+        @media (max-width: 440px) {
+            .welcome-section {
+                padding: 20px;
+    
+            }
+        }
+    
+        @media (max-width: 991px) {
+            .welcome-section {
+                margin-right: 0;
+    
+                width: 100%;
+            }
+    
+            .welcome-section p {
+                font-size: 18px;
+                margin-top: 0 !important;
+                line-height: 2rem;
+            }
+        }
+    
+        .free-plan {
+            cursor: pointer;
+            background-color: #212121;
+            border-radius: 50px;
+            padding: 10px 15px;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 13px;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            -ms-border-radius: 50px;
+            -o-border-radius: 50px;
+        }
+    
+        .free-plan i {
+            color: #ff9f00;
+            /* لون الأيقونة */
+            font-size: 16px;
+        }
+    </style>
+    <link rel="stylesheet" href="images.css">
 
 </head>
 
@@ -161,96 +233,113 @@
                             </select>
                         </div>
                     </div>
-     </div>
-    
+    </div>
 
     <!-- Main Content -->
     <main>
         
-        <div class="content">
-
-         <!-- ================================================================================================================================================    -->
-            <!-- content of website  -->
-            <section class="privacy-section sec-bg">
-                <div class="container">
-                    <h1>Privacy & Terms</h1>
-                    <p>
-                        Welcome to Bestartup AI! We value your privacy and are committed to
-                        protecting your personal information. This Privacy Policy outlines how
-                        we collect, use, and protect your data when you use our services.
-                    </p>
-                    <div class="content">
-                        <div>
-                            <h5>
-                                1. Information We Collect We collect the following types of
-                                information:
-                            </h5>
-                            <ul>
-                                <li>
-                                    Personal Information: Name, email address, phone number, and
-                                    other contact details you provide when you sign up or contact
-                                    us.
-                                </li>
-                                <li>
-                                    Usage Data: Information about how you use our platform,
-                                    including IP address, browser type, and usage patterns.
-                                </li>
-                                <li>
-                                    Cookies and Tracking Technologies: We use cookies to enhance
-                                    your experience on our site and collect data to optimize our
-                                    services.
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>2. How We Use Your Information We use your data to:</h5>
-                            <ul>
-                                <li>Provide and improve our services.</li>
-                                <li>
-                                    Communicate with you, respond to inquiries, and offer support.
-                                </li>
-                                <li>
-                                    Analyze and understand how you use our platform to enhance our
-                                    offerings.
-                                </li>
-                                <li>
-                                    Analyze and understand how you use our platform to enhance our
-                                    offerings. Comply with legal obligations.
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>Data Sharing and Disclosure </h5>
-                            <ul>
-                                <li>We do not sell your personal information. We may share your data with trusted third-
-                                    party service providers who assist us in operating our platform. These providers are
-                                    contractually obligated to keep your data confidential and use it solely for providing
-                                    services to us. </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>3. Data Security </h5>
-                            <ul>
-                                <li>We implement industry-standard measures to protect your personal information.
-                                    While we strive to use commercially acceptable means to protect your data, no
-                                    method of transmission over the internet or electronic storage is 100% secure. </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>4. Your Rights Depending on your location, you may have certain rights over your personal data,
-                                including: </h5>
-                            <ul>
-                                <li> The right to access or request a copy of your data. </li>
-                                <li>The right to correct or update your personal data. </li>
-                                <li>The right to request deletion of your data. </li>
-                                <li>To exercise any of these rights, please contact us at <a href="">help@bestartup.ai</a> </li>
-                            </ul>
+    <div class="box-content">
+        <section>
+            <div class="welcome-section">
+                <p class="mt-3"> Create Images from words with AI <span class="free-plan"><i
+                            class="fa-solid fa-wand-magic-sparkles me-2"></i>Create New</span></p>
+            </div>
+    
+            <div class="card-grid">
+    
+                <div class="card" data-image="g1.jpeg" data-text="Ghosts, purple horses made of light, wild west on the moon...">
+                    <div class="image-container">
+                        <img src="g1.jpeg" alt="Purple horse" class="card-image">
+                        <div class="prompt-text">
+                            <p>Ghosts, purple horses made of light, wild west on the moon...</p>
+                            <button class="download-btn">use this prompt</button>
                         </div>
                     </div>
                 </div>
-            </section>
+                <div class="card" data-image="g2.jpeg" data-text="Wild west with purple horses and ghosts...">
+                    <div class="image-container">
+                        <img src="g2.jpeg" alt="Purple horse" class="card-image">
+                        <div class="prompt-text">
+                            <p>Wild west with purple horses and ghosts...</p>
+                            <button class="download-btn">use this prompt</button>
+                        </div>
+                    </div>
+                </div>
 
-        </div>
+                <div class="card" data-image="g3.jpeg" data-text="Ghosts, purple horses made of light, wild west on the moon, space range, basic firewave fashion, design Couture of the futuristic Wild West, 1880">
+                    <div class="image-container">
+                        <img src="g3.jpeg" alt="Purple horse" class="card-image">
+                        <div class="prompt-text">
+                            <p>
+                                Ghosts, purple horses made of light, wild west on the moon, space range, basic firewave
+                                fashion, design Couture of the futuristic Wild West, 1880
+                            </p>
+                            <button class="download-btn">use this prompt</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-image="g4.jpeg"data-text="Ghosts, purple horses made of light, wild west on the moon, space range, basic firewave fashion, ddkwjkldjfldkjooi3oijojfeoj ef weoweoodwpodw  dw  dwpwppokokpkwpcw">
+                    <div class="image-container">
+                        <img src="g4.jpeg" alt="Purple horse" class="card-image">
+                        <div class="prompt-text">
+                            <p>
+                                Ghosts, purple horses made of light, wild west on the moon, space range, basic firewave fashion,
+                                ddkwjkldjfldkjooi3oijojfeoj ef weoweoodwpodw dw dwpwppokokpkwpcw
+                            </p>
+                            <button class="download-btn">use this prompt</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-image="g5.jpeg"data-text="Ghosts, erklfkdls  dfkldsjflkdmlkjsdfs f dslfkjdlksjflsdkjflsd ristic Wild West, 1880">
+                    <div class="image-container">
+                        <img src="g5.jpeg" alt="Purple horse" class="card-image">
+                        <div class="prompt-text">
+                            <p>
+                                Ghosts, erklfkdls  dfkldsjflkdmlkjsdfs f dslfkjdlksjflsdkjflsd ristic Wild West, 1880
+                            </p>
+                            <button class="download-btn">use this prompt</button>
+                        </div>
+                    </div>
+                </div>
+
+    
+    
+    
+                <div class="card_modal mb-3" id="codeModal" style="display: none;">
+                    <div class="modal-content">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="" alt="Selected image" class="card-image" id="modalImage">
+                            </div>
+                            <div class="col-md-8 contentOfModel">
+                                <div class="card-body">
+                                    <div style='display:flex;justify-content:space-between;align-items:center'>
+                                        <h5 class="card-title">Prompt</h5>
+                                        <button class="close-btn">&times;</button>
+                                    </div>
+                                    <p class="card-text" id="modalText"></p>
+                                    <div class="actionOfPormpet">
+                                        <button id="copyTextBtn">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                            </svg>
+                                        </button>
+                                        <button  id="downloadImageBtn">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
 
 
@@ -268,97 +357,7 @@
 
  
    <!-- home script  -->
- 
- <!-- change dir -->
-    <!-- <script>
-    // اختيار عنصر select من الـ DOM
-    const languageSelector = document.getElementById('language-selector');
 
-    // عند تغيير اللغة
-    languageSelector.addEventListener('change', (e) => {
-        const selectedLanguage = e.target.value;
-
-        // إذا تم اختيار "ar" نضيف كلاس rtl ونحفظ الاختيار في localStorage
-        if (selectedLanguage === 'ar') {
-            document.body.classList.add('rtl');
-            localStorage.setItem('language', 'ar');
-            // إضافة margin-left للعنصر عند اختيار اللغة العربية
-            updateFaqQuestionMargin('ar');
-            updateContentPadding('ar');
-            updateCardSignFormMargin('ar');
-        } else {
-            // إزالة كلاس rtl إذا تم اختيار لغة أخرى
-            document.body.classList.remove('rtl');
-            localStorage.setItem('language', 'ltr');
-            // إزالة margin-left للعنصر عند اختيار اللغة الإنجليزية
-            updateFaqQuestionMargin('en');
-            updateContentPadding('en');
-            updateCardSignFormMargin('en');
-        }
-    });
-
-    // عند تحميل الصفحة، استرجاع اللغة من localStorage
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedLanguage = localStorage.getItem('language');
-
-        if (savedLanguage === 'ar') {
-            document.body.classList.add('rtl');
-            languageSelector.value = 'ar'; // تحديد الاختيار في القائمة
-            updateFaqQuestionMargin('ar');
-            updateContentPadding('ar');
-            updateCardSignFormMargin('ar');
-        } else {
-            document.body.classList.remove('rtl');
-            languageSelector.value = 'en';
-            updateFaqQuestionMargin('en');
-            updateContentPadding('en');
-            updateCardSignFormMargin('en');
-        }
-    });
-    // faq - question
-    // دالة لتحديث الـ margin-left للعنصر .faq-question span
-    function updateFaqQuestionMargin(language) {
-        const elements = document.querySelectorAll('.faq-question span');
-        elements.forEach((element) => {
-            if (language === 'ar') {
-                element.style.marginLeft = '10px';
-                element.style.marginRight = '0px';
-            } else {
-                element.style.marginLeft = '';
-                element.style.marginRight = '';
-            }
-        });
-    }
-/** privacy policy */
-    // دالة لتحديث الـ padding-right للعنصر .content div ul
-    function updateContentPadding(language) {
-        const elements = document.querySelectorAll('.content div ul');
-        elements.forEach((element) => {
-            if (language === 'ar') {
-                element.style.paddingRight = '2rem';
-                element.style.paddingLeft = '0rem';
-            } else {
-                element.style.paddingRight = '';
-                element.style.paddingLeft = '';
-            }
-        });
-    }
-    // sign in
-    // دالة لتحديث الـ margin-left للعنصر .card-sign-form .toggle-icon
-        function updateCardSignFormMargin(language) {
-            const elements = document.querySelectorAll('.card-sign-form .toggle-icon');
-            elements.forEach((element) => {
-                if (language === 'ar') {
-                    element.style.marginRight = 'auto';
-                    element.style.marginLeft = "0";
-                } else {
-                    element.style.marginRight = '0';
-                    element.style.marginLeft = 'auto';
-                }
-            });
-        } 
-    </script> -->
-    
     <script>
         // اختيار عنصر select من DOM
             const languageSelector = document.getElementById('language-selector');
@@ -391,7 +390,95 @@
             });
 
     </script>
-    
+
+    <!-- image eneration script -->
+    <script>
+        // const cards = document.querySelectorAll(".card");
+        // const modal = document.getElementById('codeModal');
+        // const closeBtn = document.querySelector('.close-btn');
+
+        // cards.forEach((tab) => {
+        //     tab.addEventListener("click", () => {
+        //         modal.classList.toggle('show');
+        //     });
+        // });
+
+
+
+        // closeBtn.onclick = () => modal.classList.remove('show');
+        // window.onclick = (e) => {
+        //     if (e.target === modal) modal.classList.remove('show');
+        // }
+
+        document.addEventListener("DOMContentLoaded", function () {
+                const cards = document.querySelectorAll(".card");
+                const modal = document.getElementById("codeModal");
+                const modalImage = document.getElementById("modalImage");
+                const modalText = document.getElementById("modalText");
+                const copyTextBtn = document.getElementById("copyTextBtn");
+                const downloadImageBtn = document.getElementById("downloadImageBtn");
+                const closeModalBtn = document.querySelector(".close-btn");
+
+                // إنشاء عنصر الرسالة المؤقتة
+                const toast = document.createElement("div");
+                toast.style.position = "fixed";
+                toast.style.bottom = "20px";
+                toast.style.right = "20px";
+                toast.style.backgroundColor = "#333";
+                toast.style.color = "#fff";
+                toast.style.padding = "10px 20px";
+                toast.style.borderRadius = "5px";
+                toast.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+                toast.style.display = "none";
+                toast.style.fontSize = "14px";
+                toast.style.zIndex = "1000";
+                toast.textContent = "The text has been copied!";
+                document.body.appendChild(toast);
+
+                // عرض المودال عند الضغط على الكارد
+                cards.forEach(card => {
+                    card.addEventListener("click", function () {
+                        const imageSrc = card.dataset.image;
+                        const promptText = card.dataset.text;
+
+                        // تحديث الصورة والنص داخل المودال
+                        modalImage.src = imageSrc;
+                        modalText.textContent = promptText;
+
+                        // عرض المودال
+                        modal.style.display = "block";
+                    });
+                });
+
+                // غلق المودال
+                closeModalBtn.addEventListener("click", function () {
+                    modal.style.display = "none";
+                });
+
+                // نسخ النص الموجود في المودال
+                copyTextBtn.addEventListener("click", function () {
+                    navigator.clipboard.writeText(modalText.textContent)
+                        .then(() => {
+                            // عرض الرسالة المؤقتة
+                            toast.style.display = "block";
+                            setTimeout(() => {
+                                toast.style.display = "none";
+                            }, 2000); // إخفاء الرسالة بعد ثانيتين
+                        })
+                        .catch(err => console.error("Error copying text: ", err));
+                });
+
+                // تنزيل الصورة عند الضغط على الزر
+                downloadImageBtn.addEventListener("click", function () {
+                    const link = document.createElement("a");
+                    link.href = modalImage.src;
+                    link.download = "image.jpg";
+                    link.click();
+                });
+            });
+
+
+    </script>
 
 
 
